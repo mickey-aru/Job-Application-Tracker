@@ -4,10 +4,12 @@
   "description": "Simple job application tracker built with Node.js, Express and MySQL",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "express": "^5.0.0",
-    "mysql2": "^3.24.6"
+    "mysql2": "^3.24.6",
+    "nodemon": "^3.1.14"
   }
 }
