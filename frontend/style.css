@@ -1,0 +1,143 @@
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --navy: #0f172a;
+  --total: #475569;
+  --applied: #2563eb;
+  --interview: #d97706;
+  --offer: #16a34a;
+  --rejected: #dc2626;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+.topbar { background: var(--navy); color: #fff; }
+.topbar-inner {
+  max-width: 1100px; margin: 0 auto; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand h1 { margin: 0; font-size: 1.2rem; }
+.brand p { margin: 2px 0 0; font-size: 0.8rem; color: #94a3b8; }
+.logo {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--applied);
+  display: grid; place-items: center; font-weight: 700;
+}
+
+main { max-width: 1100px; margin: 0 auto; padding: 24px 20px 40px; display: grid; gap: 20px; }
+
+.card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08); }
+.card h2 { margin: 0 0 16px; font-size: 1rem; }
+
+/* Stat cards */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.stat {
+  background: var(--total); color: #fff; border-radius: 12px; padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+.stat span { font-size: 0.8rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat strong { display: block; font-size: 2rem; margin-top: 4px; }
+.stat.Applied { background: var(--applied); }
+.stat.Interview { background: var(--interview); }
+.stat.Offer { background: var(--offer); }
+.stat.Rejected { background: var(--rejected); }
+
+/* Overview */
+.overview { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; }
+
+.chart-wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.donut {
+  width: 170px; height: 170px; border-radius: 50%; flex-shrink: 0;
+  background: var(--border); display: grid; place-items: center;
+}
+.donut-center {
+  width: 110px; height: 110px; border-radius: 50%; background: var(--card);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.donut-center strong { font-size: 1.8rem; }
+.donut-center span { font-size: 0.75rem; color: var(--muted); }
+
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; flex: 1; min-width: 160px; }
+.legend li { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+.legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+.legend .pct { margin-left: auto; color: var(--muted); }
+
+.kpis { display: grid; gap: 14px; }
+.kpi { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.kpi:last-child { border-bottom: none; padding-bottom: 0; }
+.kpi span { color: var(--muted); font-size: 0.9rem; }
+.kpi strong { font-size: 1.4rem; }
+
+/* Table */
+.table-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.table-head h2 { margin: 0; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: middle; }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+tbody tr:hover { background: #f8fafc; }
+td a { color: var(--applied); text-decoration: none; font-weight: 600; }
+td a:hover { text-decoration: underline; }
+.company { font-weight: 600; }
+.notes { color: var(--muted); max-width: 220px; }
+.actions { display: flex; gap: 6px; }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+.badge.Applied { background: #dbeafe; color: var(--applied); }
+.badge.Interview { background: #fef3c7; color: var(--interview); }
+.badge.Offer { background: #dcfce7; color: var(--offer); }
+.badge.Rejected { background: #fee2e2; color: var(--rejected); }
+
+#empty { text-align: center; color: var(--muted); padding: 24px 0 8px; margin: 0; }
+
+/* Form controls */
+input, select, textarea, button { font: inherit; }
+input, select, textarea {
+  width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid #bfdbfe; border-color: var(--applied); }
+.filters input, .filters select { width: auto; min-width: 170px; }
+
+button { border: none; border-radius: 8px; padding: 9px 16px; cursor: pointer; font-weight: 600; }
+button.primary { background: var(--applied); color: #fff; }
+button.primary:hover { background: #1d4ed8; }
+button.secondary { background: var(--border); color: var(--text); }
+button.small { padding: 5px 10px; font-size: 0.8rem; background: var(--border); color: var(--text); }
+button.small.danger { background: #fee2e2; color: var(--rejected); }
+
+/* Modal */
+.modal {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5);
+  display: grid; place-items: center; padding: 16px; z-index: 10;
+}
+.modal[hidden] { display: none; }
+.modal-box { background: #fff; border-radius: 12px; padding: 24px; width: 100%; max-width: 480px; display: grid; gap: 12px; max-height: 95vh; overflow-y: auto; }
+.modal-box h2 { margin: 0; }
+.modal-box label { display: grid; gap: 4px; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.modal-box label input, .modal-box label select, .modal-box label textarea { font-weight: 400; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.buttons { display: flex; justify-content: flex-end; gap: 8px; }
+.error { color: var(--rejected); margin: 0; min-height: 1.2em; font-size: 0.85rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .overview { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .row { grid-template-columns: 1fr; }
+}
